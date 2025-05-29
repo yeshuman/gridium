@@ -72,5 +72,5 @@ gridium/
 - Hands-on exercises and experimentation guidance
 - Best practices explanations with rationale
 
-[Unreleased]: https://github.com/RuebenAntony/gridium/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/RuebenAntony/gridium/releases/tag/v0.1.0 
+[Unreleased]: https://github.com/yeshuman/gridium/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/yeshuman/gridium/releases/tag/v0.1.0 
