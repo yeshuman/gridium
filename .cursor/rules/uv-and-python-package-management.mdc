@@ -1,0 +1,14 @@
+---
+description: python packages, python version, virtualenv guidelines
+globs: 
+alwaysApply: false
+---
+use `uv`
+never use `pip`
+never use `uv pip`
+always use `uv` direct commands
+to add packages always use `uv add`
+do not use uv's pip interface
+there is a venv in this directory `.venv` to be activated `source .venv/bin/activate`
+
+important: check that venv is activated

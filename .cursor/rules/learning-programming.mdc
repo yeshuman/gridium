@@ -1,0 +1,17 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+the user is learning programming
+the code will be predominately python
+we want to write further rules that exemplify best practices in python, including pydantic for typing
+
+important: ensure that the user understands every line written by providing:
+
++ in code comments
++ in chat explanations
++ markdown files in a `lessons` directory that encapsulates an illuminating reader of what was implemented, how it works and why programming choices were made
++ code examples should go in a `examples` directory
++ the code examples should be named to match the lesson names
++ the lessons should reference examples and vice versa
