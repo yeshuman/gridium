@@ -14,8 +14,6 @@ import { tileToPosition } from '../utils/chessGrid'
  * Geometry args: [width, height, depth] for a box.
  */
 function Scene() {
-  const knightPosition = tileToPosition(0, 1) // b1
-
   return (
     <>
       {/* ambientLight: soft, even lighting from all directions - increased for visibility */}
@@ -26,8 +24,13 @@ function Scene() {
       {/* 8x8 chess board */}
       <TileGrid rows={8} cols={8} />
 
-      {/* Knight on b1 */}
-      <Knight position={knightPosition} />
+      {/* White knights: b1, g1 (row 0, cols 1 and 6) */}
+      <Knight position={tileToPosition(0, 1)} color="white" />
+      <Knight position={tileToPosition(0, 6)} color="white" />
+
+      {/* Black knights: b8, g8 (row 7, cols 1 and 6) */}
+      <Knight position={tileToPosition(7, 1)} color="black" />
+      <Knight position={tileToPosition(7, 6)} color="black" />
     </>
   )
 }

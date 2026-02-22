@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Knight component with color prop (white/black)
+- White knights at b1, g1; black knights at b8, g8
+
+### Changed
+- App: radial gradient background (saturated, darker palette) with Canvas alpha
+- Scene: 8x8 chess board, four knights in correct starting positions
+
 ### Fixed
 - TileGrid: checkerboard floor not visible – replaced Drei Instances with individual meshes for reliable rendering
 
