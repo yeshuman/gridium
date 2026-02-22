@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- .cursor/rules/changelog.mdc: add git branching and gh (GitHub CLI) guidance
+
 ### Added
 - TileGrid component: 64x64 chess-board floor using Drei Instances (InstancedMesh)
 - Per-instance colors via vertexColors, THREE.Color for correct rendering

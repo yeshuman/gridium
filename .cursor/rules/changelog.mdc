@@ -1,6 +1,10 @@
 ---
-description: when completing a task work with user to maintain a changelog
+description: when completing a task, or using git, work with user to maintain a changelog
 globs: 
 alwaysApply: false
 ---
 when concluding a task confirm with user to update and maintain a changelog according to standards
+
+help the user to maintain proper git branching
+
+use gh (github cli) to help maintain the upstream repository
