@@ -15,12 +15,17 @@ This project teaches modern Python development through:
 
 ```
 gridium/
-├── lessons/                    # Educational materials
+├── lessons/                    # Educational materials (Python)
 │   ├── 01_pydantic_introduction.md
 │   └── 02_pydantic_best_practices.md
-├── examples/                   # Runnable code examples
+├── examples/                   # Runnable code examples (Python)
 │   ├── 01_pydantic_introduction.py
 │   └── 02_pydantic_best_practices.py
+├── game/                       # React Three Fiber 3D game
+│   ├── src/                    # React + R3F source
+│   ├── lessons/                # R3F educational materials
+│   ├── examples/               # R3F example components
+│   └── package.json
 ├── pyproject.toml             # Project configuration
 ├── uv.lock                    # Dependency lock file
 ├── .python-version            # Python version specification
@@ -85,10 +90,34 @@ gridium/
 - **Code Documentation**: Self-documenting through types
 - **Tool Support**: IDE assistance and static analysis
 
+## 🎮 Game (React Three Fiber)
+
+The `game/` directory contains a 3D game built with React Three Fiber (R3F) and Three.js.
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) 18+
+- [pnpm](https://pnpm.io/) (`npm install -g pnpm` or via corepack)
+
+### Setup and Run
+
+```bash
+cd game
+pnpm install
+pnpm run dev
+```
+
+Open http://localhost:5173 in your browser. You should see a lit 3D scene with rotating cubes.
+
+### Learning Path
+- **Read**: `game/lessons/01_r3f_first_scene.md`
+- **Reference**: `game/examples/01_basic_cube.tsx`
+- **Learn**: Canvas, JSX-to-Three.js mapping, useFrame, Zustand game state
+
 ## 🛠 Key Dependencies
 
 - **[Pydantic](https://pydantic.dev/)**: Data validation and parsing library
 - **[uv](https://docs.astral.sh/uv/)**: Fast Python package manager
+- **Game**: React, Three.js, @react-three/fiber, @react-three/drei, Zustand
 
 ## 🎯 Real-World Applications
 

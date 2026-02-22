@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- .cursor/rules/changelog.mdc: add git branching and gh (GitHub CLI) guidance
+
+### Added
+- TileGrid component: 64x64 chess-board floor using Drei Instances (InstancedMesh)
+- Per-instance colors via vertexColors, THREE.Color for correct rendering
+- game/lessons/02_tile_grid.md - InstancedMesh, vertexColors, chess pattern
+- game/examples/02_tile_grid.tsx - standalone 8x8 example
+- Link from lesson 01 to lesson 02
+- React Three Fiber (R3F) game project in `game/` subdirectory
+- Vite + React + TypeScript setup with pnpm
+- Core R3F dependencies: three, @react-three/fiber, @react-three/drei, zustand
+- Minimal first scene: Canvas, lighting, rotating cube, OrbitControls
+- `game/src/components/Scene.tsx` - main scene with useFrame animation
+- `game/src/store/gameStore.ts` - Zustand store for game state (score, gameState)
+- `game/lessons/01_r3f_first_scene.md` - lesson covering Canvas, JSX mapping, args prop, lighting, useFrame, Zustand
+- `game/examples/01_basic_cube.tsx` - standalone minimal cube example
+- Cross-references between lesson and example per learning-programming rules
+- Inline code comments explaining concepts for learners
+- README section for game setup and run instructions
+
 ## [0.1.0] - 2024-12-19
 
 ### Added
