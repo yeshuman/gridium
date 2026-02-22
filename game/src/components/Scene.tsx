@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import type { Mesh } from 'three'
+import TileGrid from './TileGrid'
 
 /**
  * Scene - Main 3D scene content.
@@ -46,6 +47,9 @@ function Scene() {
         <boxGeometry args={[0.5, 0.5, 0.5]} />
         <meshStandardMaterial color="hotpink" />
       </mesh>
+
+      {/* Floor: 64x64 tile grid (chess-board pattern), one draw call via InstancedMesh */}
+      <TileGrid rows={64} cols={64} />
     </>
   )
 }

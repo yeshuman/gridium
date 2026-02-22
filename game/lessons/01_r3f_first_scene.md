@@ -125,6 +125,7 @@ See `src/store/gameStore.ts` for the game store definition.
 
 ## Next Steps
 
+- **Tile Grid**: Build a floor from tiles using InstancedMesh - see [02_tile_grid.md](02_tile_grid.md)
 - Add `OrbitControls` from `@react-three/drei` for camera control (drag to rotate, scroll to zoom)
 - Load 3D models (GLTF) with `useGLTF`
 - Add physics with `@react-three/rapier`

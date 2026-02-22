@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- TileGrid component: 64x64 chess-board floor using Drei Instances (InstancedMesh)
+- Per-instance colors via vertexColors, THREE.Color for correct rendering
+- game/lessons/02_tile_grid.md - InstancedMesh, vertexColors, chess pattern
+- game/examples/02_tile_grid.tsx - standalone 8x8 example
+- Link from lesson 01 to lesson 02
 - React Three Fiber (R3F) game project in `game/` subdirectory
 - Vite + React + TypeScript setup with pnpm
 - Core R3F dependencies: three, @react-three/fiber, @react-three/drei, zustand
