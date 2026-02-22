@@ -87,7 +87,7 @@ function Character() {
 
   // Queen-like shape: wide base (cylinder), tapered body, crown (sphere)
   return (
-    <group position={[x, y, z]} scale={[1, 2.25, 1]} pointerEvents="none">
+    <group position={[x, y, z]} scale={[1, 2.25, 1]}>
       {/* Base - wide cylinder */}
       <mesh position={[0, 0.1, 0]}>
         <cylinderGeometry args={[0.35, 0.4, 0.2, 8]} />

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- Build: remove invalid `pointerEvents` prop from Character and Trees groups (not supported on R3F Group)
 - TileGrid: checkerboard floor not visible – replaced Drei Instances with individual meshes for reliable rendering
 
 ### Changed
