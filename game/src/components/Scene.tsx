@@ -1,7 +1,6 @@
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import type { Mesh } from 'three'
 import TileGrid from './TileGrid'
+import Knight from './Knight'
+import { tileToPosition } from '../utils/chessGrid'
 
 /**
  * Scene - Main 3D scene content.
@@ -15,18 +14,6 @@ import TileGrid from './TileGrid'
  * Geometry args: [width, height, depth] for a box.
  */
 function Scene() {
-  // useRef gives us a mutable reference to the mesh for useFrame
-  const meshRef = useRef<Mesh>(null)
-
-  // useFrame runs every frame (game loop) - perfect for animations
-  // state: R3F state, delta: time since last frame
-  useFrame((_state, delta) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += delta * 0.5
-      meshRef.current.rotation.y += delta * 0.3
-    }
-  })
-
   return (
     <>
       {/* ambientLight: soft, even lighting from all directions - increased for visibility */}
@@ -34,23 +21,16 @@ function Scene() {
       {/* pointLight: directional light from a point (like a lamp) */}
       <pointLight position={[10, 10, 10]} intensity={1.5} />
 
-      {/* Rotating cube - ref used by useFrame for animation */}
-      <mesh ref={meshRef} position={[0, 0, 0]}>
-        {/* args={[1, 1, 1]} = BoxGeometry(1, 1, 1) - unit cube */}
-        <boxGeometry args={[1, 1, 1]} />
-        {/* meshBasicMaterial: doesn't need lighting, always visible */}
-        <meshBasicMaterial color="orange" />
-      </mesh>
+      {/* 8x8 chess board */}
+      <TileGrid rows={8} cols={8} />
 
-      {/* Second cube - static, for visual variety */}
-      <mesh position={[2, 0, -1]}>
-        <boxGeometry args={[0.5, 0.5, 0.5]} />
-        {/* meshBasicMaterial: doesn't need lighting, always visible */}
-        <meshBasicMaterial color="hotpink" />
-      </mesh>
+      {/* White knights: b1, g1 (row 0, cols 1 and 6) */}
+      <Knight position={tileToPosition(0, 1)} color="white" />
+      <Knight position={tileToPosition(0, 6)} color="white" />
 
-      {/* Floor: 64x64 tile grid (chess-board pattern) */}
-      <TileGrid rows={64} cols={64} />
+      {/* Black knights: b8, g8 (row 7, cols 1 and 6) */}
+      <Knight position={tileToPosition(7, 1)} color="black" />
+      <Knight position={tileToPosition(7, 6)} color="black" />
     </>
   )
 }

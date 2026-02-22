@@ -16,8 +16,8 @@ interface TileGridProps {
 }
 
 function TileGrid({
-  rows = 64,
-  cols = 64,
+  rows = 16,
+  cols = 16,
   tileSize = 1,
   lightColor = '#ffffff', // White (high contrast light square)
   darkColor = '#1a1a1a',  // Dark gray/black (high contrast dark square)
