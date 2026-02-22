@@ -17,7 +17,7 @@ game/
 ├── src/
 │   ├── components/
 │   │   ├── Scene.tsx          # Main 3D scene with cubes and floor
-│   │   └── TileGrid.tsx        # Chess-board floor using InstancedMesh
+│   │   └── TileGrid.tsx        # Tile floor with mountains (elevated terrain)
 │   ├── store/
 │   │   └── gameStore.ts        # Zustand store for game state
 │   ├── App.tsx                 # Root component with Canvas
@@ -138,33 +138,26 @@ game/
 - `pointLight`: Directional light from a point (creates shading)
 
 #### `src/components/TileGrid.tsx`
-**Purpose**: Renders a chess-board floor using InstancedMesh for performance.
+**Purpose**: Renders a tile floor with mountains (elevated terrain).
 
 **What it does**:
-1. Creates a grid of tiles (64x64 = 4096 tiles by default)
-2. Uses `Instances` + `Instance` from Drei (wraps InstancedMesh)
-3. Applies chess pattern: `(row + col) % 2` alternates colors
-4. Centers the grid around origin
-5. Rotates each tile 90° to lay flat (floor)
+1. Creates a grid of tiles (24×16 by default)
+2. Places 5–6 mountain clusters; each cluster has 2–4 black peak tiles (max 16 total)
+3. Gray tiles surround black peaks; dark green inner/outer rings form the slopes
+4. Base green tiles sit at the lowest elevation
+5. Vertical walls fill gaps between adjacent tiles and close the perimeter
 
-**Why InstancedMesh?**:
-- **Without**: 4096 separate meshes = 4096 draw calls per frame (slow)
-- **With**: 1 InstancedMesh = 1 draw call for all tiles (fast)
-- GPU renders one geometry many times with different positions/colors
+**Mountains**:
+- **Black tiles**: Peaks (highest elevation)
+- **Gray tiles**: Adjacent to peaks
+- **Dark green inner/outer**: Slopes around the mountains
+- **Base green**: Flat floor at lowest level
 
 **Key concepts**:
-- `Instances`: Wrapper component (creates InstancedMesh)
-- `Instance`: One "copy" in the grid (position, rotation, color)
-- `vertexColors`: Material property that enables per-instance colors
-- `useMemo`: Caches THREE.Color objects (avoids recreating each render)
-- Grid centering: Offsets positions so grid is symmetric around origin
-
-**Chess pattern logic**:
-```typescript
-const isLight = (row + col) % 2 === 0
-// Even sum (0, 2, 4...) = light tile
-// Odd sum (1, 3, 5...) = dark tile
-```
+- `pickRandomBlackTiles`: Chooses cluster positions with MIN_GAP between clusters
+- `getTileInfo`: Returns color and elevation per tile
+- Vertical walls: Planes between tiles of different heights to avoid gaps
+- Perimeter walls: Close the grid borders
 
 ### State Management
 

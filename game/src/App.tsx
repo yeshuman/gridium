@@ -1,17 +1,21 @@
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Sky, calcPosFromAngles } from '@react-three/drei'
 import Scene from './components/Scene'
+
+const sunDir = calcPosFromAngles(0.5, 0.1)
+const sunPos: [number, number, number] = [sunDir.x * 800, sunDir.y * 800, sunDir.z * 800]
+
+function Sun() {
+  return (
+    <mesh position={sunPos}>
+      <sphereGeometry args={[25, 32, 32]} />
+      <meshBasicMaterial color="#ffd700" />
+    </mesh>
+  )
+}
 
 /**
  * App - Root component wrapping the R3F Canvas.
- *
- * Canvas from @react-three/fiber:
- * - Creates a Three.js Scene and PerspectiveCamera automatically
- * - Runs the render loop (requestAnimationFrame)
- * - Handles window resize
- * - Sets up pointer events for raycasting (clicks, hover)
- *
- * The Canvas fills its parent; we use index.css to make #root 100vh.
  */
 function App() {
   return (
@@ -20,8 +24,14 @@ function App() {
         camera={{ position: [0, 0, 5], fov: 50 }}
         gl={{ antialias: true }}
       >
-        {/* Background color - light gray to verify rendering */}
-        <color attach="background" args={['#e0e0e0']} />
+        <color attach="background" args={['#87CEEB']} />
+        <Sky
+          sunPosition={[sunDir.x, sunDir.y, sunDir.z]}
+          turbidity={5}
+          rayleigh={0.2}
+          mieCoefficient={0.00005}
+        />
+        <Sun />
         <Scene />
         {/* OrbitControls: drag to rotate, scroll to zoom (from @react-three/drei) */}
         <OrbitControls />
