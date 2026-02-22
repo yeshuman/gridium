@@ -109,9 +109,12 @@ pnpm run dev
 Open http://localhost:5173 in your browser. You should see a lit 3D scene with rotating cubes.
 
 ### Learning Path
-- **Read**: `game/lessons/01_r3f_first_scene.md`
-- **Reference**: `game/examples/01_basic_cube.tsx`
-- **Learn**: Canvas, JSX-to-Three.js mapping, useFrame, Zustand game state
+- **Start Here**: `game/lessons/00_new_files_explanation.md` - Comprehensive overview of all game files
+- **Read**: `game/lessons/01_r3f_first_scene.md` - Introduction to React Three Fiber
+- **Read**: `game/lessons/02_tile_grid.md` - InstancedMesh and performance optimization
+- **Reference**: `game/examples/01_basic_cube.tsx` - Minimal R3F example
+- **Reference**: `game/examples/02_tile_grid.tsx` - TileGrid example
+- **Learn**: Canvas, JSX-to-Three.js mapping, useFrame, Zustand game state, InstancedMesh
 
 ## 🛠 Key Dependencies
 

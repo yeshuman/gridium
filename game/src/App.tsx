@@ -20,6 +20,8 @@ function App() {
         camera={{ position: [0, 0, 5], fov: 50 }}
         gl={{ antialias: true }}
       >
+        {/* Background color - light gray to verify rendering */}
+        <color attach="background" args={['#e0e0e0']} />
         <Scene />
         {/* OrbitControls: drag to rotate, scroll to zoom (from @react-three/drei) */}
         <OrbitControls />

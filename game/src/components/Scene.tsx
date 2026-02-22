@@ -29,26 +29,27 @@ function Scene() {
 
   return (
     <>
-      {/* ambientLight: soft, even lighting from all directions */}
-      <ambientLight intensity={0.5} />
+      {/* ambientLight: soft, even lighting from all directions - increased for visibility */}
+      <ambientLight intensity={1} />
       {/* pointLight: directional light from a point (like a lamp) */}
-      <pointLight position={[10, 10, 10]} intensity={1} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} />
 
       {/* Rotating cube - ref used by useFrame for animation */}
       <mesh ref={meshRef} position={[0, 0, 0]}>
         {/* args={[1, 1, 1]} = BoxGeometry(1, 1, 1) - unit cube */}
         <boxGeometry args={[1, 1, 1]} />
-        {/* meshStandardMaterial: PBR material that responds to lights */}
-        <meshStandardMaterial color="orange" />
+        {/* meshBasicMaterial: doesn't need lighting, always visible */}
+        <meshBasicMaterial color="orange" />
       </mesh>
 
       {/* Second cube - static, for visual variety */}
       <mesh position={[2, 0, -1]}>
         <boxGeometry args={[0.5, 0.5, 0.5]} />
-        <meshStandardMaterial color="hotpink" />
+        {/* meshBasicMaterial: doesn't need lighting, always visible */}
+        <meshBasicMaterial color="hotpink" />
       </mesh>
 
-      {/* Floor: 64x64 tile grid (chess-board pattern), one draw call via InstancedMesh */}
+      {/* Floor: 64x64 tile grid (chess-board pattern) */}
       <TileGrid rows={64} cols={64} />
     </>
   )

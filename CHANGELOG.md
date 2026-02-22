@@ -7,12 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- TileGrid: checkerboard floor not visible – replaced Drei Instances with individual meshes for reliable rendering
+
 ### Changed
 - .cursor/rules/changelog.mdc: add git branching and gh (GitHub CLI) guidance
+- README: learning path with "Start Here" link to 00_new_files_explanation.md
+- Scene: increased ambient/point light, meshBasicMaterial for cubes, TileGrid comment
+- App: background color #e0e0e0 for visibility
 
 ### Added
-- TileGrid component: 64x64 chess-board floor using Drei Instances (InstancedMesh)
-- Per-instance colors via vertexColors, THREE.Color for correct rendering
+- game/lessons/00_new_files_explanation.md – overview of game files and structure
+- TileGrid component: 64x64 chess-board floor using individual meshes with explicit colors
 - game/lessons/02_tile_grid.md - InstancedMesh, vertexColors, chess pattern
 - game/examples/02_tile_grid.tsx - standalone 8x8 example
 - Link from lesson 01 to lesson 02
