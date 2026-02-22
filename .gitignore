@@ -1,3 +1,7 @@
+# Node (game/ subproject)
+game/node_modules/
+game/dist/
+
 # Python
 __pycache__/
 *.py[cod]
