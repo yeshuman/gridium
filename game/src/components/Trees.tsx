@@ -47,7 +47,7 @@ function Trees() {
   if (!terrain || treePositions.length === 0) return null
 
   return (
-    <group pointerEvents="none">
+    <group>
       {treePositions.map(([row, col], i) => {
         const x = (col - OFFSET_X)
         const z = (row - OFFSET_Z)
