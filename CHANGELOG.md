@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Game: second (AI) piece with same movement rules as the player, stepped tile animation, magenta/orange piece colors via `pieceColors.ts`
+- Game: click-only player movement with shortest-path stepping, white reachability dots; move dots hidden while walking
+- Game: player houses — one per turn on an adjacent land tile (Shift+click); houses block movement like trees; `Houses.tsx` mesh matches player color
+- Game: gold dots while Shift is held show valid house placements; terrain helpers `getAdjacentHouseBuildableTiles`, `isRiverOrLake`, house blocking in pathfinding (`minCostToAllReachableTiles`, `queenShortestPathCells`)
+- Game: HUD copy for moves, End Turn, and build hints
+
 ### Fixed
 - Build: remove invalid `pointerEvents` prop from Character and Trees groups (not supported on R3F Group)
 - TileGrid: checkerboard floor not visible – replaced Drei Instances with individual meshes for reliable rendering

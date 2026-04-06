@@ -342,11 +342,6 @@ function TileGrid({
               </mesh>
             )
           }
-          const handleClick = () => {
-            const key = `${row},${col}`
-            if (treePositions.has(key)) return
-            setCharacterPosition(row, col)
-          }
           return (
             <group key={`${row}-${col}`}>
               <mesh
@@ -354,7 +349,13 @@ function TileGrid({
                 rotation={[-Math.PI / 2, 0, 0]}
                 onClick={(e) => {
                   e.stopPropagation()
-                  handleClick()
+                  const key = `${row},${col}`
+                  if (treePositions.has(key)) return
+                  if (e.shiftKey) {
+                    useGameStore.getState().buildHouse(row, col)
+                    return
+                  }
+                  setCharacterPosition(row, col)
                 }}
                 onPointerOver={() => { document.body.style.cursor = 'pointer' }}
                 onPointerOut={() => { document.body.style.cursor = 'default' }}

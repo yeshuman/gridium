@@ -33,6 +33,7 @@ function Trees() {
       const key = `${row},${col}`
       if (water.has(key)) continue
       if (row === 12 && col === 8) continue // Avoid character start position
+      if (row === 15 && col === 12) continue // Avoid AI piece start position
       if (positions.some(([r, c]) => r === row && c === col)) continue
       positions.push([row, col])
     }
